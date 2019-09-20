@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-world
+  labels:
+    app: hello
+spec:
+  containers:
+    - image: letanthang/hello-world
+      name: hello-cont
+      ports:
+        - containerPort: 80
+          name: web
+      resources:
+        requests:
+          memory: "50Mi"
+          cpu: "50m"
+        limits:
+          memory: "75Mi"
+          cpu: "75m"

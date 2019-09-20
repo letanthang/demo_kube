@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: sample-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  labels:
+    app: multi
+spec:
+  rules:
+    - host: go3008.info
+      http:
+        paths:
+          - path: /hello
+            backend:
+              serviceName: hello-svc
+              servicePort: 3000
+          - path: /nginx
+            backend:
+              serviceName: hello-svc
+              servicePort: 3001

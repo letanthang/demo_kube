@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sample-pod
+  labels:
+    app: sample
+spec:
+  containers:
+    - image: nginx:1.12
+      name: nginx-containers
+      ports:
+        - containerPort: 80
+          name: web
+      resources:
+        requests:
+          memory: "50Mi"
+          cpu: "50m"
+        limits:
+          memory: "75Mi"
+          cpu: "75m"
